@@ -1,0 +1,68 @@
+### .screenrc / 'GNU Screen' configuration file
+### written by ryz
+###
+### last update: 2009-04-04 14:50
+
+## key bindings
+
+# unbind some dangerous keys
+
+bind '.'
+bind '^\'
+bind '\\'
+bind 'k'
+bind '^k'
+
+# bind some more useful keys
+
+bind '}' history
+bind 'K' kill 
+bind 'W' windowlist
+
+## screen startup / terminal-spawns
+
+screen -t irssi 0 zsh
+screen -t zsh 1 zsh
+screen -t mutt 2 zsh
+screen -t vim 3 zsh
+screen -t snownews 4 zsh
+screen -t moc 5 zsh
+screen -t rtorrent 6 zsh
+
+## statusbar configuration
+
+hardstatus on
+
+# active statusbar
+#
+# colors: green, white, grey
+#
+# preview
+# -------
+# [] ({hostname}) :: {windowlist} :: {date} {time} []
+
+hardstatus alwayslastline
+hardstatus string "%{wk}%{-}%{ww} %{wk} (%{gk}%H%{-}%{wk}) %{Wk}:: %{-}%{wk}%-w %{+b wk}[%n %t]%{-} %+w%=%{wk} :: %d.%m.%y %c:%s %{ww} %{-}"
+
+# old, simplistic statusbar
+# -------------------------
+# hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%< %=%D %M %d %c"
+# hardstatus string '%{= kK}%-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %d%M %c:%s%{-}'
+
+## misc
+
+shell zsh
+autodetach on
+startup_message off
+shelltitle ''
+vbell off
+allpartial off
+
+# scrollback-buffer in lines
+defscrollback 2048
+
+# show status-messages for x seconds
+msgwait 2
+
+# detach messages
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."

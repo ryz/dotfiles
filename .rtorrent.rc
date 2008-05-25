@@ -1,0 +1,96 @@
+# Maximum and minimum number of peers to connect to per torrent.
+#min_peers = 40
+#max_peers = 100
+
+# Same as above but for seeding completed torrents (-1 = same as downloading)
+#min_peers_seed = 10
+#max_peers_seed = 50
+
+# Maximum number of simultanious uploads per torrent.
+max_uploads = 10
+
+# Global upload and download rate in KiB. "0" for unlimited.
+download_rate = 0
+upload_rate = 0
+
+
+## downloads & schedules
+
+# default download directory
+directory = ~/torrent/incoming
+
+# save settings and more with sessiosn
+session = ~/torrent/.sessions/
+
+# check hash on finished downloads
+check_hash = yes
+
+# Watch a directory for new torrents, and stop those that have been deleted (DEPRECATED)
+#schedule = watch_directory,5,5,"load_start=/home/ryz/torrent/torrents/*.torrent"
+
+# watch for .torrents, start in a directory & set a new for later mv of the files
+schedule = watch_directory_2,5,60,"load_start=~/torrent/torrents/*.torrent,d.set_directory=~/torrent/incoming/,d.set_custom1=~/torrent/seeding/"
+
+# execute the mv command when download is finished
+on_finished = move_complete,"execute=mv,-u,$d.get_base_path=,$d.get_custom1= ;d.set_directory=$d.get_custom1="
+
+# restart torrents that have been copied back
+schedule = tied_directory,5,60,start_tied=
+
+# stop deleted torrents
+schedule = untied_directory,5,60,close_untied=
+
+# stop seeding when ratio 1.0 with at least 200 MB uploaded, or else ratio 10.0
+schedule = ratio,5,60,"stop_on_ratio=100,220M,1000"
+
+# Close torrents when diskspace is low.
+schedule = low_diskspace,5,60,close_low_diskspace=250M
+
+
+# The ip address reported to the tracker.
+#ip = 127.0.0.1
+#ip = rakshasa.no
+
+# The ip address the listening socket and outgoing connections is
+# bound to.
+#bind = 127.0.0.1
+#bind = rakshasa.no
+
+# Port range to use for listening.
+#port_range = 6890-6999
+
+# Start opening ports at a random position within the port range.
+#port_random = no
+
+# Set whetever the client should try to connect to UDP trackers.
+#use_udp_trackers = yes
+
+# Encryption options, set to none (default) or any combination of the following:
+# allow_incoming, try_outgoing, require, require_RC4, enable_retry, prefer_plaintext
+#
+# The example value allows incoming encrypted connections, starts unencrypted
+# outgoing connections but retries with encryption if they fail, preferring
+# plaintext to RC4 encryption after the encrypted handshake
+#
+# encryption = allow_incoming,enable_retry,prefer_plaintext
+
+#
+# Do not modify the following parameters unless you know what you're doing.
+#
+
+# Hash read-ahead controls how many MB to request the kernel to read
+# ahead. If the value is too low the disk may not be fully utilized,
+# while if too high the kernel might not be able to keep the read
+# pages in memory thus end up trashing.
+#hash_read_ahead = 10
+
+# Interval between attempts to check the hash, in milliseconds.
+#hash_interval = 100
+
+# Number of attempts to check the hash while using the mincore status,
+# before forcing. Overworked systems might need lower values to get a
+# decent hash checking rate.
+#hash_max_tries = 10
+
+# Max number of files to keep open simultaniously.
+#max_open_files = 128
