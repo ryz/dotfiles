@@ -1,0 +1,36 @@
+[default]
+
+#Standard zeug
+
+cache=8192 # cache for streams
+hardframedrop="0" # keine frames auslassen
+ass="1" # 'Substation Alpha und Advanced Sub Station Support'
+#dvd-device=/dev/hdc # dvd device
+geometry=50%:50% # mplayer opens in the middle of the screen
+nolirc=1 # keine fernbedienung
+nojoystick="1" # no joystick
+fixed-vo="1" # ein fenster fuer alles
+idx="1" # create avi-index if damaged or non-existant
+utf8="1" # UTF-8 for subs
+fs="0" # fullscreen
+
+#subtitles
+sid="0" # subtitles on
+embeddedfonts="yes"
+fontconfig="yes"
+
+# Audio
+ao="alsa" # audio-output
+autosync="30"
+# mixer-channel="Master"
+# srate=48000 # rate
+
+# Optische sachen
+vo="x11" # video-output
+zoom="1" # scaling vom bild mit x11 ausgabe
+double="yes" # double buffering, gut fuer subs
+monitoraspect="4:3" # auf 4:3 umstellen falls die infos in der datei fehlen oder falsch sind
+
+# Optimierungen
+autoq=100 # postprocessing nutzen mit allem was die cpu noch frei hat
+vf=pp=lb # mpeg filter
