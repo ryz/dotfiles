@@ -22,7 +22,6 @@ urxvt*termName:                rxvt-unicode
 urxvt*cutchars:                "()*,<>[]{}|'
 urxvt*secondaryScroll:          false
 urxvt*visualBell:              false
-urxvt*keysym.C-u:               perl:matcher
 
 ! -| tabs |-
 urxvt.tabbed.tabbar-fg:         8
@@ -43,11 +42,14 @@ urxvt.pointerColor:      black
 urxvt.pointerColor2:    white
 
 ! -| browser / url |-
-urxvt*perl-lib:                /usr/lib/urxvt/perl/
-urxvt*perl-ext-common:          default,matcher
-urxvt*urlLauncher:              opera
+urxvt.perl-lib:             /home/ryz/.urxvt
+urxvt.perl-ext:             selection,mark-yank-urls
+urxvt*perl-ext-common:          default,matcher,-option-popup,-selection-popup,-readline
+urxvt*urlLauncher:              /home/ryz/scripts/opera_newtab.sh
 urxvt*matcher.button:          1
 urxvt*matcher.pattern.1:        \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+urxvt.underlineURLs: true
+urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
 
 ! -| font |-
 urxvt*font:              -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-16
