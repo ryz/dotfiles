@@ -1,19 +1,26 @@
 ### .zshrc / 'Z-Shell' Configuration file
 ### written by ryz
-### last update: 2008-04-03 10:05
+### last update: 2008-06-01 00:30
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# eval 'dircolors ~/.dircolors'
+eval $(dircolors -b ~/.dircolors)
 
 setopt autocd # change dir without 'cd'-command
+
+## export settings
+
+export EDITOR='vim'
+export BROWSER='opera'
+export PAGER='less'
+export VISUAL='vim'
 
 ## alias
 
 alias ls='ls --color=auto -F'
-alias l='ls  --color=auto -F'
+alias l='ls --color=auto -F'
 alias la='ls -ah --color=auto -F'
 alias ll='ls -alh --color=auto -F'
 alias mp='mplayer'

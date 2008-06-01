@@ -40,6 +40,11 @@ syntax on " syntax highlighting
 set ai " autoindent
 set si " smartindent
 set ci 
+set expandtab " use spaces in place of tabs.
+set tabstop=8 " number of spaces for a tab.
+set softtabstop=4 " number of spaces for a tab in editing operations.
+set shiftwidth=4 " number of spaces for indent (>>, <<, ...)
+
 
 set ruler " show the cursor position all the time 
 
