@@ -15,8 +15,8 @@
 urxvt*saveLines:                32767
 urxvt*scrollBar:              false
 urxvt*scrollBar_right:          false
-urxvt*loginShell:              false
-urxvt*borderLess:              true
+urxvt*loginShell:              true
+urxvt*borderLess:              false
 urxvt*termName:                rxvt-unicode
 !urxvt*inheritPixmap:          true
 urxvt*cutchars:                "()*,<>[]{}|'
@@ -30,14 +30,13 @@ urxvt.tabbed.tab-fg:            7
 urxvt.tabbed.tab-bg:            0
 
 ! -| general color-settings |-
-!urxvt.background:        black
-urxvt.background:        #303030
+urxvt.background:        black
 urxvt.foreground:        white
-!urxvt.tintColor:         black
+urxvt.tintColor:         black
 !urxvt.fading:            55  
-!urxvt.fadeColor:         black
-!urxvt.shading:           35
-!urxvt.inheritPixmap:     true
+urxvt.fadeColor:         black
+urxvt.shading:           13
+urxvt.inheritPixmap:     true
 urxvt.pointerColor:      black
 urxvt.pointerColor2:    white
 
@@ -45,15 +44,17 @@ urxvt.pointerColor2:    white
 urxvt.perl-lib:             /home/ryz/.urxvt
 urxvt.perl-ext:             selection,mark-yank-urls
 urxvt*perl-ext-common:          default,matcher,-option-popup,-selection-popup,-readline
-urxvt*urlLauncher:              /home/ryz/scripts/opera_newtab.sh
+urxvt*urlLauncher:              /home/ryz/scripts/ff_newtab.sh
 urxvt*matcher.button:          1
-urxvt*matcher.pattern.1:        \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+urxvt*matcher.pattern.1:        \\bwww\\.[\\w-]+\\.[\\w./@#-]*[\\w/-]
 urxvt.underlineURLs: true
 urxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
 
 ! -| font |-
-urxvt*font:              -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-16
-urxvt*boldFont:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-16
+urxvt*font: -schumacher-clean-*-*-*-*-8-80-*-*-*-*-*-irv
+#urxvt*font:              -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-16
+urxvt*boldFont:          -schumacher-clean-*-*-*-*-8-80-*-*-*-*-*-irv
+#urxvt*boldFont:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-16
 
 !urxvt*font:              -nil-profont-medium-r-normal-*-11-110-72-72-c-60-iso8859-1
 !urxvt*boldFont:          -nil-profont-medium-r-normal-*-11-110-72-72-c-60-iso8859-1
@@ -67,29 +68,29 @@ urxvt*renderFont:        true
 
 ! ---| thayer bright |--- {{{
 !black
-!*color0:                  #181c18
-!*color8:                  #555555
+*color0:                  #181c18
+*color8:                  #555555
 !red
-!*color1:                  #ff3300
-!*color9:                  #ff6655
+*color1:                  #ff3300
+*color9:                  #ff6655
 !green
-!*color2:                  #75cc2b
-!*color10:                 #95ff58
+*color2:                  #75cc2b
+*color10:                 #95ff58
 !yellow
-!*color3:                  #ffe975
-!*color11:                 #ffef9c
+*color3:                  #ffe975
+*color11:                 #ffef9c
 !blue -> violet
-!*color4:                  #285577
-!*color12:                 #6677ff
+*color4:                  #285577
+*color12:                 #6677ff
 !magenta -> pink
-!*color5:                  #ce5c00
-!*color13:                 #f57900
+*color5:                  #ce5c00
+*color13:                 #f57900
 !cyan -> blue
-!*color6:                  #3399ff
-!*color14:                 #99ccff
+*color6:                  #3399ff
+*color14:                 #99ccff
 !white
-!*color7:                  #c4c4c4
-!*color15:                 #ffffff
+*color7:                  #c4c4c4
+*color15:                 #ffffff
 !}}}
  
 ! ---| donri |--- {{{
@@ -376,37 +377,37 @@ xpdf*viKeys: on
 
 ! ----| bright pastel theme | ---- {{{
 ! black
-urxvt*color0:           #000000
+!urxvt*color0:           #000000
 ! red (wine)
-urxvt*color1:           #9e1828
-! green (light-lime)
-urxvt*color2:           #aece92
-! yellow (dark-olive)
-urxvt*color3:           #968a38
-! violet ( )
-urxvt*color4:           #414171
-! 
-urxvt*color5:           #963c59
-!
-urxvt*color6:           #418179
-!
-urxvt*color7:           #bebebe
-!
-urxvt*color8:           #666666
-!
-urxvt*color9:           #cf6171
-!
-urxvt*color10:          #c5f779
-!
-urxvt*color11:          #fff796
-!
-urxvt*color12:          #4186be
-!
-urxvt*color13:          #cf9ebe
-!
-urxvt*color14:          #71bebe
-!
-urxvt*color15:          #ffffff
+!urxvt*color1:           #9e1828
+!! green (light-lime)
+!urxvt*color2:           #aece92
+!! yellow (dark-olive)
+!urxvt*color3:           #968a38
+!! violet ( )
+!urxvt*color4:           #414171
+!! 
+!urxvt*color5:           #963c59
+!!
+!urxvt*color6:           #418179
+!!
+!urxvt*color7:           #bebebe
+!!
+!urxvt*color8:           #666666
+!!
+!urxvt*color9:           #cf6171
+!!
+!urxvt*color10:          #c5f779
+!!
+!urxvt*color11:          #fff796
+!!
+!urxvt*color12:          #4186be
+!!
+!urxvt*color13:          #cf9ebe
+!!
+!urxvt*color14:          #71bebe
+!!
+!urxvt*color15:          #ffffff
 !}}}
 
 ! ----| xterm settings |---- {{{
