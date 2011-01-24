@@ -19,6 +19,19 @@ bind '}' history
 bind 'K' kill 
 bind 'W' windowlist
 
+# use more than 10 screen windows
+
+bind '!' select 10
+bind '@' select 11
+bind '#' select 12
+bind '$' select 13
+bind '%' select 14
+bind '^' select 15
+bind '&' select 16
+bind '*' select 17
+bind '(' select 18
+bind ')' select 19
+
 ## screen startup / terminal-spawns
 
 screen -t irssi 0 zsh
@@ -57,6 +70,21 @@ startup_message off
 shelltitle ''
 vbell off
 allpartial off
+nethack off
+hardcopydir ~/.tmp/
+
+# 256 color stuff
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+# erase background with current bg color
+defbce "on" 
+
+
 
 # scrollback-buffer in lines
 defscrollback 2048
