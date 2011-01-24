@@ -1,7 +1,7 @@
 " ---------------------------------
 " .vimrc / 'Vim' configuration file 
 " written by ryz                    
-" last update: 2011-01-24
+" last update: 2011-01-24 20:04:21
 " latest changes/additions/removals:
 " [+] backupdir, cross-os/(no)gui config
 " [=] -
@@ -9,33 +9,40 @@
 " ---------------------------------
 
 
-" General settings {{{
+" general settings {{{
 " ----------------
 
-filetype on " detect the type of file
-set history=1000 " How many lines of history to remember
-set nocompatible " dont emulate vi-behaviour
-set mouse=a " enable mouse support (all modes) 
-set number " show line numbers
-set cursorline " show cursor line (colorscheme dependent)
-set nopaste " not in paste mode per default
-set shortmess=a
+set nocompatible " don't emulate vi-behaviour, must be the first option
 
-set backspace=2 " make backspace work like most other apps; same as 'backspace=indent,eol,start'
+set backup " make backup files
+set backspace=2 " allow backspacing in insert mode over everything else; same as 'backspace=indent,eol,start'
+filetype on " detect the type of file
+set history=50 " How many lines of history to remember
+set showcmd " display incomplete commands
+
+set mouse=a " enable mouse support (all modes) 
+
+set nowrap " no line wrapping at all
+set number " show line numbers
+set numberwidth=4 " use 'x' spaces for numbers, e.g. '4' for '999 '
+
+set cursorline " show cursor line (colorscheme dependent)
+set ruler " show the cursor position all the time 
+set nopaste " not in paste mode per default
+
 
 set hls " highlight search-pattern
-set is " incremential search
+set incsearch " incremential search ("set is" also works)
 
 set pdev=canon4300 " printer setting
 
-set backup " make backup files
 
 
-" set backup-dirs
+" set backup directories
 
 if has ("unix")
-set backupdir=~/.vim/backup " where to put backup files
-set directory=~/.vim/tmp " where to put swap (.swp) files
+set backupdir=~/.vim/backup " where to put backup files under unix/linux
+set directory=~/.vim/tmp " where to put swap (.swp) files under unix/linux
 
 elseif has ("win32")
 set backupdir=$TEMP " where to put backup files
@@ -55,27 +62,31 @@ syntax on " syntax highlighting
 
 if has ("gui_running")
     colorscheme desert " nice darkish, stadard GUI theme
-    else
-        colorscheme ir_black " not a standard theme?
+else
+    colorscheme ir_black " not a standard theme?
 endif
 
-set t_Co=256
+set t_Co=256 " set terminal to 256 colors
 
 " }}}
 
 " status bar {{{
 " ----------------------
 
-set statusline=%F%m%r%h%w\ [%{&ff}][%Y]\ [ascii=\%03.3b]\ [hex=\%02.2B]\ [pos=%04l,%04v][%p%%]\ [ln=%L] 
+set statusline=%F%m%r%h%w\ [%{&ff}][%Y]\ [ascii=\%03.3b]\ [hex=\%02.2B]\ [pos=%04l,%04v][%p%%]\ [ln=%L] " informative status line 
 set laststatus=2 " always show status line 
+set cmdheight=2 " height of the command line, e.g. two lines; helps to avoid 'hit ENTER to continue' message
+set shortmess=a " keep status messages short; helps to avoid 'hit ENTER to continue' message
 
 " }}}
 
 " folding {{{
 " ----------------------
-set foldenable " turn on folding
-set foldmethod=marker " fold on marker
 
+if has ("folding")
+    set foldenable " turn on folding
+    set foldmethod=marker " auto-fold on marker
+endif
 " }}}
 
 " text formatting/layout {{{
@@ -84,13 +95,13 @@ set foldmethod=marker " fold on marker
 set ai " autoindent
 set si " smartindent
 set ci 
+
+" tab behaviour
 set expandtab " use spaces in place of tabs.
 set tabstop=8 " number of spaces for a tab.
 set softtabstop=4 " number of spaces for a tab in editing operations.
 set shiftwidth=4 " number of spaces for indent (>>, <<, ...)
 
-
-set ruler " show the cursor position all the time 
 
 "au BufWinLeave * mkview " save fold/view state on exit
 "au BufWinEnter * silent loadview " silently reload saved view state
