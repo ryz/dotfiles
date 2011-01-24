@@ -1,11 +1,17 @@
 " ---------------------------------
-" .vimrc / 'Vim' configuration file 
-" written by ryz                    
-" last update: 2011-01-24 20:04:21
+" vimrc / 'Vim' configuration file 
+"
+" written by ryz <ryzawy@gmail.com>
+" last update: 2011-01-24 21:30:48
+" ---------------------------------
 " latest changes/additions/removals:
 " [+] backupdir, cross-os/(no)gui config
 " [=] -
 " [-] auto save buffer
+" ---------------------------------
+" to use this vimrc, copy it to
+" for GNU/Linux and Unix: ~/.vimrc
+" for MS-DOS and Win32  : $VIM\_vimrc
 " ---------------------------------
 
 
@@ -20,7 +26,9 @@ filetype on " detect the type of file
 set history=50 " How many lines of history to remember
 set showcmd " display incomplete commands
 
-set mouse=a " enable mouse support (all modes) 
+if has ("mouse")
+    set mouse=a " enable mouse support (all modes) 
+endif
 
 set nowrap " no line wrapping at all
 set number " show line numbers
@@ -149,11 +157,18 @@ inoremap ''     '
 
 " gui settings {{{
 " ------------
+
+" everything GUI-related that was not defined earlier
+
 if has ("gui_running")
 
-    " everything GUI-related that was not defined earlier
+    " set a nice, readable GUI font
     set guifont=Dina:h8:cANSI " not a standard font
 
+    " turn off the GUI widgets
+    set guioptions-=T " remove the toolbar (icons on top of the screen)
+    set guioptions-=m " remove the menu bar 
+    set guioptions-=r " remove the right scroll bar
 endif
 
 " EOF

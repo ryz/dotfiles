@@ -66,11 +66,11 @@ hardstatus string "%{wk}%{-}%{ww} %{wk} (%{gk}%H%{-}%{wk}) %{Wk}:: %{-}%{wk}%-w 
 
 shell zsh
 autodetach on
-startup_message off
-shelltitle ''
+startup_message off # bypass GPL notice (we're aware)
+shelltitle '' # no title by default
 vbell off
 allpartial off
-nethack off
+nethack off # makes error messages cryptic, no need for that
 hardcopydir ~/.tmp/
 
 # 256 color stuff
