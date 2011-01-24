@@ -1,9 +1,9 @@
 " ---------------------------------
 " .vimrc / 'Vim' configuration file 
 " written by ryz                    
-" last update: 
+" last update: 2011-01-24
 " latest changes/additions/removals:
-" [+] folding, backupdir
+" [+] backupdir, cross-os/(no)gui config
 " [=] -
 " [-] auto save buffer
 " ---------------------------------
@@ -17,8 +17,8 @@ set history=1000 " How many lines of history to remember
 set nocompatible " dont emulate vi-behaviour
 set mouse=a " enable mouse support (all modes) 
 set number " show line numbers
-set cursorline
-set nopaste
+set cursorline " show cursor line (colorscheme dependent)
+set nopaste " not in paste mode per default
 set shortmess=a
 
 set backspace=2 " make backspace work like most other apps; same as 'backspace=indent,eol,start'
@@ -29,9 +29,19 @@ set is " incremential search
 set pdev=canon4300 " printer setting
 
 set backup " make backup files
-set backupdir=~/.vim/backup " where to put backup files
 
+
+" set backup-dirs
+
+if has ("unix")
+set backupdir=~/.vim/backup " where to put backup files
 set directory=~/.vim/tmp " where to put swap (.swp) files
+
+elseif has ("win32")
+set backupdir=$TEMP " where to put backup files
+set directory=$TEMP " where to put swap (.swp) files
+
+endif
 
 set fileformats=unix,dos,mac " support all three, in this order
 
@@ -42,7 +52,13 @@ set fileformats=unix,dos,mac " support all three, in this order
 
 set background=dark
 syntax on " syntax highlighting 
-colorscheme ir_black 
+
+if has ("gui_running")
+    colorscheme desert " nice darkish, stadard GUI theme
+    else
+        colorscheme ir_black " not a standard theme?
+endif
+
 set t_Co=256
 
 " }}}
@@ -122,11 +138,11 @@ inoremap ''     '
 
 " gui settings {{{
 " ------------
-"if has ("gui_running")
+if has ("gui_running")
 
-    " basics
- "       colorscheme metacosm "
+    " everything GUI-related that was not defined earlier
+    set guifont=Dina:h8:cANSI " not a standard font
 
-
+endif
 
 " EOF
