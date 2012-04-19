@@ -5,6 +5,7 @@ servers = (
     port = "6667";
     autoconnect = "yes";
   },
+
   {
     address = "irc.efnet.net";
     chatnet = "efnet";
