@@ -1,6 +1,10 @@
 #Thanks to the authors of misso.theme and daywalker.theme for inspiration
 #twiggz@gmail.com / mike @ agfm.lomag.net  #lobby
 #Monday, October 4, 2004
+#
+#
+# Further modified by ryz <ryzawy@gmail.com>
+# 2012-11-14 19:08:20
 
 default_color = "-1";
 replaces = { "[]=" = "%K$*%n"; };
