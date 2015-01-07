@@ -60,7 +60,14 @@ hardstatus string "%{wk}%{-}%{ww} %{wk} (%{gk}%H%{-}%{wk}) %{Wk}:: %{-}%{wk}%-w 
 
 ## misc
 
-shell zsh
+# give login shell on screen initialization
+shell -$SHELL
+
+# set fixed shells
+#shell -/bin/zsh
+#shell zsh
+#shell bash
+
 autodetach on
 startup_message off # bypass GPL notice (we're aware)
 shelltitle '' # no title by default
