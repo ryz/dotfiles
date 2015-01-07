@@ -36,11 +36,6 @@ bind ')' select 19
 
 screen -t irssi 0 zsh
 screen -t zsh 1 zsh
-screen -t mutt 2 zsh
-screen -t vim 3 zsh
-screen -t snownews 4 zsh
-screen -t moc 5 zsh
-screen -t rtorrent 6 zsh
 
 ## statusbar configuration
 
